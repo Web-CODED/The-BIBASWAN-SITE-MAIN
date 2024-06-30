@@ -78,7 +78,6 @@ header.shadow .logo{
     font-weight: 600;
     color: var(--bg-color);
 }
-
 .logo span{
     color: var(--second-color);
 }
