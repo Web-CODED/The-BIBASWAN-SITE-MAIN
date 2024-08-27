@@ -2259,7 +2259,7 @@ jQuery( document ).ready(function() {
 .share{
 	position: fixed;
 	top: 50%;
-	left: 50%;
+	left: 5%;
 	transform: translate(-50%,50%);
 	width: 50px;
 	height: 50px;
@@ -2279,11 +2279,12 @@ jQuery( document ).ready(function() {
 	list-style: none;
 	width: 100%;
 	height: 100%;
-	background: #fff;
+	background: #dccccc;
 	transition: 0.5s;
 	overflow: hidden;
 	border-radius: 10px;
 	transform: scale(0.95);
+
 }
 .share ul li a{
 	position: absolute;
@@ -2292,40 +2293,47 @@ jQuery( document ).ready(function() {
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	line-height: 50px;
-	cursor: pointer;
+	line-height: 50px;	
+	font-size: 20px;
+	color: #262626;
+	transition: 0.5s;
 }
-.share ul li:nth-child(1){
+.share ul li a:hover{
+	color: #a58888;
+	background-color: #2196f3;
+}
+.share ul.active li:nth-child(1){
 	top: -100%;
 	left: -100%;
 }
-.share ul li:nth-child(2){
+.share ul.active li:nth-child(2){
 	top: -100%;
 	left: 0%;
 }
-.share ul li:nth-child(3){
+.share ul.active li:nth-child(3){
 	top: -100%;
 	left: 100%;
 }
-.share ul li:nth-child(4){
+.share ul.active li:nth-child(4){
 	top: 0%;
 	left: 100%;
 }
-.share ul li:nth-child(5){
+.share ul.active li:nth-child(5){
 	top: 100%;
 	left: 100%;
 }
-.share ul li:nth-child(6){
+.share ul.active li:nth-child(6){
 	top: 100%;
 	left: 0%;
 }
-.share ul li:nth-child(7){
+.share ul.active li:nth-child(7){
 	top: 100%;
 	left: -100%;
 }
-.share ul li:nth-child(8){
+.share ul.active li:nth-child(8){
 	top: 0%;
 	left: -100%;
+	
 }
 .toggle{
 	position: absolute;
@@ -2360,14 +2368,14 @@ jQuery( document ).ready(function() {
 <div class="share">
 	<div class="toggle"></div>
 	<ul>
-		<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-		<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-		<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-		<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-		<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-		<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-		<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-		<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+		<li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+		<li><a href="https://t.me/Bibaswan2024"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+		<li><a href="https://api.whatsapp.com/send?phone=919641592339&text=Hi"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+		<li><a href="https://www.facebook.com/Bibaswans.e.f/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+		<li><a href="https://www.youtube.com/@bibaswaneducationalfoundation1"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+		<li><a href="https://www.instagram.com/bibaswanedufoundation/?igsh=MXBzNjB5NjIzZTY4bA%3D%3D"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+		<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+		<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 	</ul>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
@@ -2375,6 +2383,7 @@ jQuery( document ).ready(function() {
  $(document).ready(function(){
 	$('.toggle').click(function(){
 		$('.toggle').toggleClass('active')
+		$('ul').toggleClass('active')
 	})
  })
 </script>
