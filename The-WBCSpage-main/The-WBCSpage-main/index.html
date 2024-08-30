@@ -1419,7 +1419,87 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	    </div>
     <div class="clear"></div>
 </div>
+<!------Start of Carousel Section--------->
+<style>
+	.slider-wrapper {
+position: relative;
+}
 
+.slider {
+--slide-width: clamp(1250px, 20vw, 3000px);
+--slide-height: clamp(200px, 50vh, 300px);
+
+display: grid;
+grid-auto-flow: column;
+scroll-snap-type: x mandatory;
+max-width: var(--slide-width);
+border: 5px solid #fff;
+box-shadow: 0 2px 15px rgba(#000, 0.2), 0 2px 20px rgba(#000, 0.25);
+overflow-y: hidden;
+overflow-x: auto;
+scroll-behavior: smooth;
+-ms-overflow-style: none;
+scrollbar-width: none;
+
+&::-webkit-scrollbar {
+display: none;
+}
+}
+
+.slide {
+scroll-snap-align: start;
+width: var(--slide-width);
+height: var(--slide-height);
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.dots {
+position: absolute;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+gap: 15px;
+z-index: 1;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+a {
+
+
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background-color: #fff;
+opacity: 0.75;
+transition: opacity ease 250ms;
+cursor: pointer;
+
+&:hover {
+opacity: 1;
+}
+}
+}
+   </style>
+   <div class="slider-wrapper">
+	   <div class="slider">
+		   <div id="slide-1" class="slide" style="background-image: url(https://images.unsplash.com/photo-1466853817435-05b43fe45b39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2198&q=80);"></div>
+   
+		   <div id="slide-2" class="slide" style="background-image: url(https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80);"></div>
+   
+		   <div id="slide-3" class="slide" style="background-image: url(https://images.unsplash.com/photo-1434725039720-aaad6dd32dfe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2842&q=80);"></div>
+	   </div>
+   
+	   <div class="dots">
+		   <a href="#slide-1"></a>
+		   <a href="#slide-2"></a>
+		   <a href="#slide-3"></a>
+	   </div>
+   </div>
+  <!--------End of Carousel Section--------->
 <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid grad-bg vc_custom_1687943760174 vc_row-has-fill">
 	<div class="flex-elem wpb_column vc_column_container vc_col-sm-12">
 		<div class="vc_column-inner">
