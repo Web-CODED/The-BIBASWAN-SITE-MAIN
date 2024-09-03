@@ -1135,7 +1135,151 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 
+<!--------------Start of Carousel Section--------->
+<style>
+	.slider-wrapper {
+		position: relative;
+		max-width: 100%;
+		overflow: hidden;
+		border: 5px solid #fff;
+		box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 0, 0, 0.25);
+	}
 
+	.slider {
+		display: flex;
+		transition: transform 0.5s ease-in-out;
+		max-width: 100%;
+	}
+
+	.slide {
+		min-width: 100%;
+		height: 50vh;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.dots {
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		gap: 10px;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.dots a {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background-color: #fff;
+		opacity: 0.75;
+		transition: opacity ease 250ms;
+		cursor: pointer;
+	}
+
+	.dots a:hover {
+		opacity: 1;
+	}
+
+	/* Media Query for Tablets and Larger Screens */
+	@media (min-width: 768px) {
+		.slide {
+			height: 50vh;
+		}
+	}
+
+	/* Media Query for Desktop */
+	@media (min-width: 1024px) {
+		.slide {
+			height: 50vh;
+		}
+	}
+</style>
+</head>
+<body>
+
+<div class="slider-wrapper">
+<div class="slider">
+	<!-- Slide 1 -->
+	<div class="slide">
+		<picture>
+			<!-- Image for mobile -->
+			<source media="(max-width: 767px)" srcset="/assets/mobile-flyer/ssc.jpg">
+			<!-- Image for laptop and larger screens -->
+			<source media="(min-width: 768px)" srcset="https://testseries.bibaswaneducationalfoundation.in/static/media/wl_client/256611/offer_images/e9eb1e2fac2e4f78a55ba5b543d49285.jpg">
+			<!-- Fallback image -->
+			<img src="https://testseries.bibaswaneducationalfoundation.in/static/media/wl_client/256611/offer_images/e9eb1e2fac2e4f78a55ba5b543d49285.jpg" alt="Slide 1" style="width: 100%; height: 100%;">
+		</picture>
+	</div>
+
+	<!-- Slide 2 -->
+	<div class="slide">
+		<picture>
+			<source media="(max-width: 767px)" srcset="/assets/mobile-flyer/1.jpg">
+			<source media="(min-width: 768px)" srcset="https://testseries.bibaswaneducationalfoundation.in/static/media/wl_client/256611/offer_images/71c170169c00477fb34c9ff0715d7a5a.jpg">
+			<img src="https://testseries.bibaswaneducationalfoundation.in/static/media/wl_client/256611/offer_images/71c170169c00477fb34c9ff0715d7a5a.jpg" alt="Slide 2" style="width: 100%; height: 100%;">
+		</picture>
+	</div>
+
+	<!-- Slide 3 -->
+	<div class="slide">
+		<picture>
+			<source media="(max-width: 767px)" srcset="/assets/Crash%20course/Railway%20Crash%20course.jpg">
+			<source media="(min-width: 768px)" srcset="/assets/Crash%20course/Railway%20Crash%20course.jpg">
+			<img src="/assets/Crash%20course/Railway%20Crash%20course" alt="Slide 3" style="width: 100%; height: 100%;">
+		</picture>
+	</div>
+</div>
+
+<div class="dots">
+	<a href="#" data-slide="0"></a>
+	<a href="#" data-slide="1"></a>
+	<a href="#" data-slide="2"></a>
+</div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dots a');
+let currentIndex = 0;
+let slideInterval;
+
+function goToSlide(index) {
+	const slider = document.querySelector('.slider');
+	slider.style.transform = `translateX(-${index * 100}%)`;
+	currentIndex = index;
+	updateDots();
+}
+
+function updateDots() {
+	dots.forEach((dot, index) => {
+		dot.style.opacity = index === currentIndex ? '1' : '0.75';
+	});
+}
+
+function nextSlide() {
+	currentIndex = (currentIndex + 1) % slides.length;
+	goToSlide(currentIndex);
+}
+
+dots.forEach((dot, index) => {
+	dot.addEventListener('click', (e) => {
+		e.preventDefault();
+		clearInterval(slideInterval); // Stop auto sliding when dot is clicked
+		goToSlide(index);
+		slideInterval = setInterval(nextSlide, 3000); // Restart auto sliding
+	});
+});
+
+// Start automatic sliding
+slideInterval = setInterval(nextSlide, 3000);
+</script>
+
+   <!--------End of Carousel Section--------->
 
 
 <div class="container">
@@ -1160,88 +1304,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <div class="single-course-content">
-
-<!------Start of Carousel Section--------->
-<style>
-	.slider-wrapper {
-position: relative;
-}
-
-.slider {
---slide-width: clamp(1250px, 20vw, 3000px);
---slide-height: clamp(200px, 50vh, 300px);
-
-display: grid;
-grid-auto-flow: column;
-scroll-snap-type: x mandatory;
-max-width: var(--slide-width);
-border: 5px solid #fff;
-box-shadow: 0 2px 15px rgba(#000, 0.2), 0 2px 20px rgba(#000, 0.25);
-overflow-y: hidden;
-overflow-x: auto;
-scroll-behavior: smooth;
--ms-overflow-style: none;
-scrollbar-width: none;
-
-&::-webkit-scrollbar {
-display: none;
-}
-}
-
-.slide {
-scroll-snap-align: start;
-width: var(--slide-width);
-height: var(--slide-height);
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-}
-
-.dots {
-position: absolute;
-bottom: 20px;
-left: 50%;
-transform: translateX(-50%);
-gap: 15px;
-z-index: 1;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-a {
-
-
-width: 8px;
-height: 8px;
-border-radius: 50%;
-background-color: #fff;
-opacity: 0.75;
-transition: opacity ease 250ms;
-cursor: pointer;
-
-&:hover {
-opacity: 1;
-}
-}
-}
-   </style>
-   <div class="slider-wrapper">
-	   <div class="slider">
-		   <div id="slide-1" class="slide" style="background-image: url(https://testseries.bibaswaneducationalfoundation.in/static/media/wl_client/256611/offer_images/e9eb1e2fac2e4f78a55ba5b543d49285.jpg);"></div>
-   
-		   <div id="slide-2" class="slide" style="background-image: url(https://testseries.bibaswaneducationalfoundation.in/static/media/wl_client/256611/offer_images/71c170169c00477fb34c9ff0715d7a5a.jpg);"></div>
-   
-		   <div id="slide-3" class="slide" style="background-image: url(https://testseries.bibaswaneducationalfoundation.in/static/media/wl_client/256611/offer_images/b5a92ddf360e42f2a85a64cbbad2d38d.jpg);"></div>
-	   </div>
-   
-	   <div class="dots">
-		   <a href="#slide-1"></a>
-		   <a href="#slide-2"></a>
-		   <a href="#slide-3"></a>
-	   </div>
-   </div>
-  <!--------End of Carousel Section--------->
+ 
 
 <div class="row">
     <div class="col-md-12">
@@ -1249,7 +1312,7 @@ opacity: 1;
         	<div class="row">
             	<div class="col-md-4">
                 	<div class="video">
-                    	<a class="singlevideoimg" href=""><img src="/assets/ssc crash course-flyer.jpg" /></a>
+                    	<a class="singlevideoimg" href=""><img src="/assets/mobile-flyer/Combined.jpg" /></a>
                         <div class="video-content">
                         
                         	                        </div>
@@ -1997,7 +2060,7 @@ z-index: 100;
 	<div class="contactdetails">
 		<h3><b>BIBASWAN EDUCATIONAL FOUNDATION</b></h3>
 		<p>HAKIM PARA<br /> 37, Nandalal Basu Sarani, College Para<br /> Siliguri &#8211; 734001, West Bengal, India.</div>
-			<div class="contactdetails mt-10 "><strong>Call Us (11:30 AM &#8211; 09:00 PM):</strong></p>
+			<div class="contactdetails mt-10 "><strong>Call Us (10:00 AM &#8211; 09:00 PM):</strong></p>
 				<p><b>Call Enquiry :</b> +91 9641592339 </p>
 				<p><a href="mailto:bibaswanedu@gmail.com">Email Us<br><br><br></a></div>
 </div>
