@@ -1880,21 +1880,257 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!---------------------START OF FLYER ON CLICK()------------------------------------>
 
 <!---------------------END OF FLYER SHOW-------------------------------------------->
-	<div class="wpb_raw_code wpb_content_element wpb_raw_html">
-		<div class="wpb_wrapper">
-			<ul class="popular-courses">
-				<li><a href="#" id="UPSC-CSE">UPSC-CSE</a></li>
-				<li><a href="#" id="UPSC-NDA&CDS">UPSC-NDA & CDS</a></li>
-				<li><a href="#" id="WBCS">WBCS(EXE.)</a></li>
-				<li><a href="#" id="SSCPRO">SSC-pro</a></li>
-				<li><a href="#" id="RAILWAY">Railway</a></li>
-				<li><a href="#" id="WBPSC">WBPSC</a></li>
-				<li><a href="#" id="BANKING">Banking</a></li>
-				<li><a href="#" id="MANAGEMENT">MANAGEMENT</a></li>
-				<li><a href="#" id="CLAT">CLAT</a></li>
-			</ul>
+<style>
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+}
+
+.modal-content {
+    margin: 10% auto;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgb(162, 162, 162);
+    border-radius: 7px;
+    position: relative;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fffdfd;
+    cursor: pointer;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Styles */
+
+/* Large Laptops (1440px and above) */
+@media (min-width: 1440px) {
+	.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+}
+    .modal-content {
+        width: 50%; /* Reduced width for larger screens */
+        max-width: 700px;
+		text-align: center;
+    }
+
+    .close-button {
+        font-size: 35px;
+    }
+}
+
+/* Smaller Laptops and Desktops (1024px - 1439px) */
+@media (max-width: 1439px) and (min-width: 1024px) {
+	.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+}
+    .modal-content {
+        width: 60%; /* Adjusted width for smaller laptop screens */
+		text-align: center;
+    }
+
+    .close-button {
+        font-size: 32px;
+    }
+}
+
+/* Tablets (601px - 1023px) */
+@media (max-width: 1023px) and (min-width: 601px) {
+	.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+}
+    .modal-content {
+        width: 75%; /* Slightly wider on tablets */
+        padding: 15px; /* Reduced padding for better alignment */
+		text-align: center;
+    }
+
+    .close-button {
+        font-size: 28px;
+        right: 15px; /* Adjusted for smaller screens */
+    }
+}
+
+/* Mobile Phones (426px - 600px) */
+@media (max-width: 600px) and (min-width: 426px) {
+	.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+}
+    .modal-content {
+        width: 85%; /* Nearly full width on small phones */
+        padding: 10px;
+		text-align: center;
+	
+    }
+
+    .close-button {
+        font-size: 26px;
+    }
+}
+
+/* Small Mobile Phones (up to 425px) */
+@media (max-width: 425px) {
+	.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+}
+    .modal-content {
+        width: 90%; /* Almost full width */
+        padding: 8px;
+		text-align: center;
+    }
+
+    .close-button {
+        font-size: 24px;
+    }
+}
+
+/* Very Small Mobile Phones (up to 380px) */
+@media (max-width: 380px) {
+    .modal-content {
+        width: 95%; /* Full width for the smallest devices */
+        padding: 5px;
+		text-align: center;
+		
+    }
+
+    .close-button {
+        font-size: 22px;
+    }
+}
+</style>
+
+<div class="wpb_raw_code wpb_content_element wpb_raw_html">
+	<div class="wpb_wrapper">
+		<ul class="popular-courses">
+			<li><a href="#" class="open-modal" data-video="https://www.youtube.com/embed/qmiHzllUy08 ">UPSC-CSE</a></li>
+			<li><a href="/UPSC-NDA-CDS/index.html" >UPSC-NDA & CDS</a></li>
+			<li><a href="#" class="open-modal" data-video="https://www.youtube.com/embed/_XNh1yzqX3c">WBCS (EXE.)</a></li>
+			<li><a href="#" class="open-modal" data-video="https://www.youtube.com/embed/VIDEO_ID4">SSC-Pro</a></li>
+			<li><a href="#" class="open-modal" data-video="https://www.youtube.com/embed/VIDEO_ID5">Railway</a></li>
+			<li><a href="#" class="open-modal" data-video="https://www.youtube.com/embed/VIDEO_ID7">Banking</a></li>
+			<li><a href="#" class="open-modal" data-video="https://www.youtube.com/embed/hR_7VKmisRs">CRASH COURSE</a></li>
+			<li><a href="#" class="open-modal" data-video="https://www.youtube.com/embed/TwG3aTrMfVE">Management</a></li>
+			<li><a href="#" class="open-modal" data-video="https://www.youtube.com/embed/VIDEO_ID9">CLAT</a></li>
+			<li><a href="#" class="open-modal" data-video="https://www.youtube.com/embed/lF-86RE5RBg">Spoken English</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- Modal Structure -->
+<div id="video-modal" class="modal">
+	<div class="modal-content">
+		<span class="close-button">&times;</span>
+		<div class="video-container">
+			<iframe id="video-frame" src="" 
+			frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+			encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>
 	</div>
+</div>
+<script>
+// JavaScript to handle the video pop-up modal
+
+// Get the modal and relevant elements
+const modal = document.getElementById('video-modal');
+const videoFrame = document.getElementById('video-frame');
+const closeButton = document.querySelector('.close-button');
+const openModalLinks = document.querySelectorAll('.open-modal');
+
+// Function to open the modal with the respective video
+openModalLinks.forEach(link => {
+    link.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent page reload
+        const videoSrc = this.getAttribute('data-video'); // Get video link from data attribute
+        videoFrame.src = videoSrc; // Assign to iframe
+        modal.style.display = 'block'; // Display the modal
+    });
+});
+
+// Function to close the modal and stop video playback
+closeButton.addEventListener('click', () => {
+    modal.style.display = 'none';
+    videoFrame.src = ''; // Stop video playback by clearing iframe source
+});
+
+// Close the modal if clicking outside the content
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+        videoFrame.src = ''; // Stop video playback
+    }
+});
+</script>
+
+
 </div></div></div></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid sec-block-bck vc_custom_1656299276901"><div class="sub-container wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
 	<div class="wpb_text_column wpb_content_element " >
 		<div class="wpb_wrapper">
